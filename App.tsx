@@ -2,8 +2,8 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Login } from './src/pages/login'; // Importe a tela de login
-import { Home } from './src/pages/home'; // Importe a tela fictícia "Home"
+import { Login } from './src/pages/login'; 
+import { Home } from './src/pages/home'; 
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

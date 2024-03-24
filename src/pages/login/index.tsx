@@ -78,47 +78,54 @@ export const Login = () => {
 
   const LoginScreen = () => {
     return (
-      <View style={{margin: 16}}>
+      <View style={{ margin: 16 }}>
         <TextInput
           style={{ marginTop: 16 }}
-          label={'nome'}
-          value={displayName}
-          onChangeText={setDisplayName}
-          placeholder='Nome de usuário' />
-
-
+          label={'Nome'}
+          value={displayName} // Use value em vez de defaultValue
+          onChangeText={(text) => setDisplayName(text)}
+          placeholder='Nome de usuário'
+        />
+  
         <TextInput
           style={{ marginTop: 16 }}
           label={'Senha'}
-          value={password}
+          value={password} // Use value em vez de defaultValue
           secureTextEntry={!isPasswordVisible}
-          onChangeText={setPassword}
-          placeholder='******' />
-
-          <Button 
-            style={{ marginTop: 16 }}
-            mode='contained'
-            onPress={() => {
-            console.log('Fazendo acesso')
+          onChangeText={(text) => setPassword(text)}
+          placeholder='******'
+        />
+  
+        <Button
+          style={{ marginTop: 16 }}
+          mode='contained'
+          onPress={() => {
+            console.log('Fazendo acesso');
             // navigation.navigate('Home')
-          }}>Acessar</Button>
-          
-          <Button 
-            style={{ marginTop: 16 }}
-            onPress={() => setIsRegistering(true)}>Criar Conta</Button>
+          }}
+        >
+          Acessar
+        </Button>
+  
+        <Button
+          style={{ marginTop: 16 }}
+          onPress={() => setIsRegistering(true)}
+        >
+          Criar Conta
+        </Button>
       </View>
     )
   }
-
+  
   const RegisterAccountScreen = () => {
     return (
       <View style={{margin: 16}}>
         <TextInput
           style={{ marginTop: 16 }}
           label={'nome'}
-          value={displayName}
-          onChangeText={setDisplayName}
-          placeholder='Nome de usuário' />
+          defaultValue={displayName}
+          onChangeText={(text) => setDisplayName(text)}
+          placeholder='Nome de usuário'/>
 
         <TextInput
           style={{ marginTop: 16 }}
@@ -130,10 +137,10 @@ export const Login = () => {
         <TextInput
           style={{ marginTop: 16 }}
           label={'Senha'}
-          value={password}
+          defaultValue={password}
           secureTextEntry={!isPasswordVisible}
-          onChangeText={setPassword}
-          placeholder='******' />
+          onChangeText={(text) => setPassword(text)}
+          placeholder='******'/>
 
         <TextInput
           style={{ marginTop: 16 }}
