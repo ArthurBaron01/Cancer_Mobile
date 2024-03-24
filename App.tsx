@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Login } from './src/pages/login'; // Importe a tela de login
+import { Home } from './src/pages/home'; // Importe a tela fictícia "Home"
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const MainScreen = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Login" component={Login} />
+    <Tab.Screen name="Home" component={Home} />
+  </Tab.Navigator>
+);
+
+const App = () => (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Main" component={MainScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  </NavigationContainer>
+);
+
+export default App;
